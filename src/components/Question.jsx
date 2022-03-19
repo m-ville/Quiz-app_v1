@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Options from "./Options";
+import { currentQnContext } from "./App"
+
+import { Grid } from '@mui/material';
 
 function Question(props) {
+
+    const { htmlEntities } = useContext(currentQnContext)
 
     //For Shuffling the Options
     let unshuffled = [props.IA[1], props.IA[2], props.CA, props.IA[0]]
@@ -10,15 +15,19 @@ function Question(props) {
     console.log(shuffled);
 
     return (
-        <div className="Quiz">
-            <h3>{props.id}. {props.QN}</h3>
-            <Options
-                qNo={props.id}
-                shuffledOptions={shuffled}
-                correctAns={props.CA}
-            />
+        <Grid className="Quiz">
+            <div className="qnContainer">
+                <h2>{props.id}. {htmlEntities(props.QN)}</h2>
+            </div>
+            <div className="optionsContainer">
+                <Options
+                    qNo={props.id}
+                    shuffledOptions={shuffled}
+                    correctAns={props.CA}
+                />
+            </div>
 
-        </div>
+        </Grid>
     )
 
 }

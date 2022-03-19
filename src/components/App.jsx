@@ -2,12 +2,10 @@ import "../styles.css";
 import React, { useEffect, useState, createContext } from "react";
 import Question from "./Question";
 import Result from "./Result"
-// import { CssBaseline, Button, Card, CardContent, CardHeader, Typography, CardActions, } from '@mui/material';
 
 export const currentQnContext = createContext()
 
 function App() {
-
 
   const [Qns, setQns] = useState([])
   const [currentQn, setCurrentQn] = useState(0)
@@ -25,20 +23,29 @@ function App() {
     fetchData()
   }, []);
 
-  console.log(Qns)
+  console.log(Qns);
+
+  function htmlEntities(str) {
+    return String(str)
+      .replaceAll("&amp;", "&").replaceAll("&quot;", ' " ').replaceAll("&#039;", " ' ").replaceAll("&uuml;", " ü ")
+      .replaceAll("&lt;", "<").replaceAll("&prime;", " ′ ").replaceAll("&gt;", ">");
+  }
 
 
+  if (Qns.length === 0) {
+    return (
+      <div className="loadingScreen">
+        <h1>Loading...</h1>
+        <img src="https://icon-library.com/images/loading-icon-transparent-background/loading-icon-transparent-background-12.jpg"></img>
 
-
-
-
-
-  if (Qns.length === 0) { return ("Loading...") }
+      </div>
+    )
+  }
 
   else {
     if (currentQn !== Qns.length) {
       return (
-        <currentQnContext.Provider value={{ currentQn, setCurrentQn, score, setScore, correctAns, setCorrectAns }}>
+        <currentQnContext.Provider value={{ currentQn, setCurrentQn, score, setScore, correctAns, setCorrectAns, htmlEntities }}>
           <Question
             key={currentQn}
             id={currentQn + 1}
@@ -58,8 +65,6 @@ function App() {
     }
   }
 
-
 }
 
 export default App;
-
