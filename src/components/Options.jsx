@@ -2,16 +2,16 @@ import React, { useEffect, useState, useContext } from 'react';
 import { currentQnContext } from "./App"
 import { Button } from '@mui/material';
 
+
 export default function Options(props) {
 
     const { currentQn, setCurrentQn, score, setScore, correctAns, setCorrectAns, htmlEntities } = useContext(currentQnContext)
 
     const [optionChosen, setOptionChosen] = useState("")
-    console.log("optionChosen : ", optionChosen);
 
 
     function clickHandler() {
-        console.log(props.correctAns);
+    
         if (optionChosen === htmlEntities(props.correctAns)) {
             setScore((prevScore) => {
                 return (prevScore + 1)
@@ -35,8 +35,7 @@ export default function Options(props) {
     const [opt1, opt2, opt3, opt4] = [htmlEntities(props.shuffledOptions[0]), htmlEntities(props.shuffledOptions[1]),
                                       htmlEntities(props.shuffledOptions[2]), htmlEntities(props.shuffledOptions[3])]
 
-    console.log("correctAns: ", correctAns);
-    console.log("Score:", score);
+
 
     return (
         <>

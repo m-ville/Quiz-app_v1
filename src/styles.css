@@ -14,7 +14,7 @@ body {
 label {
   font-size: 1.3rem;
   border-radius: 10px;
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 input[name="option"] {
   -ms-transform: scale(1.5); 
@@ -22,6 +22,18 @@ input[name="option"] {
   transform: scale(1.5);
   color: #ff9501;
   margin: 1rem;
+}
+label {
+  position:relative;
+  padding-left:5ch;
+  display: block;
+  margin-bottom: 5px;
+}
+
+label > [type=radio] {
+  position: absolute;
+  left: 0;
+  top: -12px;
 }
 .qnContainer {
   padding: 2rem;
@@ -87,6 +99,18 @@ input[name="option"] {
 }
 
 
+
+
+@media (max-width:950px) {
+  .Quiz {
+    font-size: 1rem;
+    width: 85%;
+    margin-left: 10%;
+  }
+  label {
+    font-size: 1.2rem;
+  }
+}
 @media (max-width:750px) {
   .Quiz {
     font-size: .75rem;
@@ -97,24 +121,65 @@ input[name="option"] {
     font-size: 1.2rem;
   }
 }
-
-@media (max-width:950px) {
+@media (max-width:1050px) {
   .Quiz {
     font-size: .9rem;
     width: 80%;
     margin-left: 10%;
   }
   label {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 }
 @media (max-width:750px) {
   .Quiz {
-    font-size: .75rem;
-    width: 80%;
-    margin-left: 10%;
+    font-size: 1rem;
+    width: 90%;
+    margin-left: 5%;
   }
   label {
     font-size: 1.2rem;
+    margin: .25rem;
+  }
+}
+@media (max-width:500px) {
+  .Quiz {
+    font-size: .75rem;
+    width: 90%;
+    margin-left: 5%;
+  }
+  label {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width:400px) {
+  .Quiz {
+    font-size: .7rem;
+    width: 90%;
+    margin-left: 5%;
+  }
+  label {
+    font-size: 1rem;
+    margin: .0;
+    line-height: 1;
+  }
+  .btn-nxt{
+    width: 120px;
+    height: 40px;
+  }
+}
+@media (max-width:350px) {
+  .Quiz {
+    font-size: .6rem;
+    width: 90%;
+    margin-left: 5%;
+  }
+  label {
+    font-size: .9rem;
+    margin: 0;
+  }
+  .btn-nxt{
+    width: 120px;
+    height: 40px;
   }
 }

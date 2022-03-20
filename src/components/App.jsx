@@ -1,5 +1,5 @@
-import "../styles.css";
 import React, { useEffect, useState, createContext } from "react";
+import "../styles.css";
 import Question from "./Question";
 import Result from "./Result"
 
@@ -23,7 +23,7 @@ function App() {
     fetchData()
   }, []);
 
-  console.log(Qns);
+  
 
   function htmlEntities(str) {
     return String(str)

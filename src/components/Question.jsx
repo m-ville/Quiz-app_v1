@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import "../styles.css";
 import Options from "./Options";
 import { currentQnContext } from "./App"
 
@@ -12,10 +13,9 @@ function Question(props) {
     let unshuffled = [props.IA[1], props.IA[2], props.CA, props.IA[0]]
     let shuffled = unshuffled.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value)
 
-    console.log(shuffled);
-
+    
     return (
-        <Grid className="Quiz">
+        <div className="Quiz">
             <div className="qnContainer">
                 <h2>{props.id}. {htmlEntities(props.QN)}</h2>
             </div>
@@ -27,7 +27,7 @@ function Question(props) {
                 />
             </div>
 
-        </Grid>
+        </div>
     )
 
 }
